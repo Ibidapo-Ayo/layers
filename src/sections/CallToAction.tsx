@@ -15,6 +15,9 @@ export default function CallToAction() {
                 { duration: 30, ease: "linear", repeat: Infinity }
             );
         }
+        return () => {
+            animation.current?.stop(); // ✅ Cleanup animation on unmount
+        };
     });
 
     useEffect(() => {
