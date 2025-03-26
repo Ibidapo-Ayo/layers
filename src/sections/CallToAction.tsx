@@ -4,15 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 export default function CallToAction() {
     const [isHovered, setIsHovered] = useState(false);
-    const animation = useRef<AnimationPlaybackControls>(null);
+    const animation = useRef<AnimationPlaybackControls | null>(null);
     const [scope, animate] = useAnimate();
 
     useEffect(() => {
-        animation.current = animate(
-            scope.current,
-            { x: "-50%" },
-            { duration: 30, ease: "linear", repeat: Infinity }
-        );
+        if (scope.current) {
+            animation.current = animate(
+                scope.current,
+                { x: "-50%" },
+                { duration: 30, ease: "linear", repeat: Infinity }
+            );
+        }
     });
 
     useEffect(() => {
@@ -36,7 +38,9 @@ export default function CallToAction() {
                     {Array.from({ length: 10 }).map((_, index) => (
                         <div key={index} className="flex items-center gap-16">
                             <span className="text-lime-400">&#10038;</span>
-                            <span className="group-hover:text-lime-400">Try it for free</span>
+                            <span className="group-hover:text-lime-400">
+                                Try it for free
+                            </span>
                         </div>
                     ))}
                 </motion.div>
