@@ -9,7 +9,7 @@ const IntegrationCard = (props: {
     className?: string;
     reverse?: boolean;
 }) => {
-    const { integrations, reverse, className } = props;
+    const { integrations, reverse } = props;
     return (
         <motion.div
             initial={{
