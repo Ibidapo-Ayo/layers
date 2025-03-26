@@ -4,7 +4,6 @@ import slackIcon from "@/assets/images/slack-logo.svg";
 import relumeIcon from "@/assets/images/relume-logo.svg";
 import framerIcon from "@/assets/images/framer-logo.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
-import Image from "next/image";
 import IntegrationCard from "@/components/IntegrationCard";
 
 export type IntegrationType = typeof integrations;
@@ -62,6 +61,7 @@ export default function Integrations() {
                         <div className="h-[400px] lg:h-[800px] mt-8 lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
                             <IntegrationCard integrations={integrations} />
                             <IntegrationCard
+                                reverse
                                 integrations={integrations.slice().reverse()}
                                 className="hidden md:flex"
                             />
